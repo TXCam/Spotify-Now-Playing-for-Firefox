@@ -1,0 +1,31 @@
+{
+	"manifest_version": 2,
+	"name": "Spotify Now Playing",
+	"version": "1.1",
+	"description": "Displays the currently playing song on Spotify in the sidebar.",
+	"permissions": ["identity", "storage", "alarms", "tabs", "https://api.spotify.com/*"],
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"icons": {
+		"48": "icon.png",
+		"96": "icon.png",
+		"128": "icon.png",
+		"256": "icon.png"
+	},
+	"sidebar_action": {
+		"default_icon": "icon.png",
+		"default_title": "Now Playing",
+		"default_panel": "sidebar.html",
+		"open_at_install": true
+	},
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": true
+	},
+    "web_accessible_resources": [
+        "options.css",
+        "setup.html",
+        "options.html"
+    ]
+}

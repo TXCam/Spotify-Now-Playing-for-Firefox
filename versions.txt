@@ -1,0 +1,51 @@
+Snapshot Features    
+    Fixed clicking song opening song
+    Fixed unclickable song title when paused (moved from tabs to background)
+    Fixed title hovering clipping off
+    Fixed options Display selector being unstylized
+    Removed ability to zoom in on sidebar
+    Added clicking on inactive options section to make it active
+
+Future Plans:
+    Lyrics
+    More in-depth startup instructions on first use
+    Pop-out view with Always-On-Top functionality
+    Cache last known song
+    Uninterrupted refresh token
+    More error screens
+    Spotify logging out after an hour
+    Prettier animations
+    Color customization?
+    Explanation of each setting option when hovered
+
+
+
+Issues/Bugs:
+    Fast marquee when small movement
+    Messy when options slides over
+    
+
+Versions
+
+    V6 - Troubleshooting and User Setup
+        Added user-friendly setup page for new users
+        Added troubleshooting page to Options
+        Removed hardcoded Spotify Developer Client ID
+        Removed dev-focused URL-pasting tool from the sidebar
+        Fixed login loop caused by an invalid Client ID
+        Fixed options page not updating in real-time
+
+    V5 (start of version logs):
+        Animated progress bar with current/total time display
+        Idle PAUSE functions
+        Ambient background
+        Progress bar color dynamically matches the album art
+        Fade transitions between songs
+        Marquee animation for overflowing text
+        Secure PKCE OAuth 2.0 for login
+        Smart Polling
+        Handles and displays messages for idle, error, and expired session states
+        Options page
+            Settings for polling frequency, grace period, and album name visibility
+            Persistent Settings
+        URI Selector for failed starts

@@ -1,0 +1,15 @@
+1. Go to about:debugging
+2. This Firefox
+3. Load Temporary Add-on...
+4. Select manifest.json
+5. Open extension
+6. Login
+7. At title bar, find redirect_uri=
+Get the https%3A%2F%2Fd6aecbaaf04769b4bcdae4e751da64640294126f.extensions.allizom.org%2F; dehashed it looks like https://d6aecbaaf04769b4bcdae4e751da64640294126f.extensions.allizom.org/
+8. Go to https://developer.spotify.com/dashboard/
+9. Edit
+10. Change Redirect URIs to the dehashed uri
+11. Save
+12. Go back to extension and Login
+13. Allow
+14. Enjoy!

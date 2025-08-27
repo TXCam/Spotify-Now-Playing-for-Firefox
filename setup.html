@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Spotify Now Playing - Setup</title>
+		<link rel="stylesheet" href="options.css" />
+		<style>
+			/* Use options.css but add some specific styles */
+			body {
+				align-items: center; /* Center the content */
+			}
+			h1 {
+				margin-bottom: 0.5em;
+			}
+			.subtitle {
+				color: var(--text-secondary-color);
+				text-align: center;
+				margin-top: 0;
+				margin-bottom: 2em;
+			}
+			.step {
+				display: flex;
+				align-items: flex-start;
+				gap: 1.5em;
+				margin-bottom: 1.5em;
+			}
+			.step-number {
+				background-color: var(--slider-fill-color);
+				color: var(--background-color);
+				font-weight: 700;
+				border-radius: 50%;
+				width: 30px;
+				height: 30px;
+				flex-shrink: 0;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			.step-content p {
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>One-Time Setup</h1>
+			<p class="subtitle">Follow these steps to connect the extension to Spotify.</p>
+
+			<!-- Instructions Card -->
+			<div class="settings-card">
+				<div class="step">
+					<div class="step-number">1</div>
+					<div class="step-content">
+						<p>
+							Go to the
+							<a
+								href="https://developer.spotify.com/dashboard"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Spotify Developer Dashboard</a
+							>
+							and log in.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">2</div>
+					<div class="step-content">
+						<p>
+							Click <strong>CREATE APP</strong>. Give it any name and
+							description (e.g., "Sidebar Extension").
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">3</div>
+					<div class="step-content">
+						<p>
+							After creating the app, you will see your
+							<strong>Client ID</strong>. Copy it and paste it in the input
+							box below.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">4</div>
+					<div class="step-content">
+						<p>
+							Now, click <strong>EDIT SETTINGS</strong> on your app's page in
+							the dashboard.
+						</p>
+					</div>
+				</div>
+				<div class="step">
+					<div class="step-number">5</div>
+					<div class="step-content">
+						<p>
+							Find the <strong>Redirect URIs</strong> section. Copy the
+							<strong>exact</strong> URL below and add it to the list, then
+							click <strong>SAVE</strong> at the bottom of the Spotify page.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Configuration Card -->
+			<div class="settings-card">
+				<div class="form-group">
+					<label>Your Unique Redirect URI</label>
+					<div class="uri-container">
+						<code id="options-redirect-uri">Loading...</code>
+						<button id="options-copy-uri-button" type="button">Copy</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="client-id-input">Your Spotify Client ID</label>
+					<input
+						type="text"
+						id="client-id-input"
+						placeholder="Paste your Client ID here..."
+						class="text-input-style"
+					/>
+				</div>
+			</div>
+
+			<div class="button-container">
+				<button id="save-button" type="button">Save and Finish</button>
+			</div>
+			<div class="status-container">
+				<span id="status"></span>
+			</div>
+		</div>
+		<script src="setup.js"></script>
+	</body>
+</html>

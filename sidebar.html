@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!-- MODIFIED: This meta tag prevents zooming -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div id="container">
+			<!-- Welcome / Setup Required View -->
+			<div id="setup-view" style="display: none">
+				<div class="embedded-status">
+					<p class="status-message">Welcome!</p>
+					<p class="status-sub-message">Configuration is required to use this extension.</p>
+				</div>
+				<button id="open-setup-button">Open Setup Page</button>
+			</div>
+            
+            <!-- Specific view for a failed login due to bad Client ID -->
+            <div id="setup-failed-view" style="display: none">
+				<div class="embedded-status">
+					<p class="status-message">Authentication Failed</p>
+					<p class="status-sub-message">Your Spotify Client ID or Redirect URI is likely incorrect. Please verify them and try again.</p>
+				</div>
+				<button id="retry-setup-button">Return to Setup</button>
+			</div>
+
+			<!-- Login View -->
+			<div id="login-view" style="display: none">
+				<button id="login-button">Login to Spotify</button>
+                <!-- MODIFIED: Wrapper now contains both links -->
+                <div class="sub-actions-wrapper">
+                    <p class="setup-link-wrapper">
+                        Incorrect Client ID? 
+                        <a href="#" id="go-to-setup-link">Return to Setup</a>
+                    </p>
+                    <p class="setup-link-wrapper">
+                        Need help? 
+                        <a href="#" id="login-help-link">Troubleshooting</a>
+                    </p>
+                </div>
+			</div>
+
+			<!-- Player View -->
+			<div id="player-view" style="display: none">
+				<div class="album-art-wrapper">
+					<img id="album-art" src="" width="100" height="100" />
+				</div>
+				<div class="text-container">
+					<div class="scrim-effect"></div>
+					<a id="song-title" target="_blank" rel="noopener noreferrer"></a>
+				</div>
+				<div class="text-container">
+					<div class="scrim-effect"></div>
+					<div id="song-artist"></div>
+				</div>
+				<div class="text-container" id="context-container">
+					<div class="scrim-effect"></div>
+					<div id="song-context"></div>
+				</div>
+				<div id="progress-container">
+					<div class="time-display-wrapper">
+						<div id="current-time" class="time-display">0:00</div>
+					</div>
+					<div id="progress-bar">
+						<div id="progress-bar-fill"></div>
+					</div>
+					<div class="time-display-wrapper">
+						<div id="duration" class="time-display">0:00</div>
+					</div>
+				</div>
+				<div id="paused-indicator">PAUSED</div>
+			</div>
+
+			<!-- Generic Status View -->
+			<div id="status-view" style="display: none">
+				<p id="status-message"></p>
+				<p id="status-sub-message"></p>
+			</div>
+		</div>
+
+		<!-- Control Buttons -->
+		<div id="bottom-controls" style="display: none">
+			<button id="logout-button">Logout</button>
+			<button id="options-button">Options</button>
+		</div>
+
+		<script src="color-thief.min.js"></script>
+		<script src="sidebar.js"></script>
+	</body>
+</html>

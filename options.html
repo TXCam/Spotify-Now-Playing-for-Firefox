@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Spotify Polling Options</title>
+		<link rel="stylesheet" href="options.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="nav-container">
+				<button id="nav-settings" class="nav-button active">Settings</button>
+				<button id="nav-help" class="nav-button">Help & Reset</button>
+			</div>
+
+			<!-- Two-Column Layout Container -->
+			<div class="columns-container" id="columns-container">
+				<!-- Left Column: All Settings -->
+				<div class="column" id="settings-column">
+					<form id="options-form">
+						<!-- Card for Polling Settings -->
+						<div class="settings-card">
+							<div class="form-group">
+								<div class="label-container">
+									<label>Polling Frequency</label>
+									<p class="description">
+										How often to check Spotify for updates.
+									</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="label-container">
+									<label for="playing-interval" style="font-size: 1em; font-weight: normal;">Playing Interval</label>
+								</div>
+								<div class="slider-container">
+									<div class="value-display">
+										<span id="playing-interval-value">2</span> s
+									</div>
+									<input type="range" id="playing-interval" min="1" max="20" step="1" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="label-container">
+									<label for="idle-interval" style="font-size: 1em; font-weight: normal;">Idle/Paused Interval</label>
+								</div>
+								<div class="slider-container">
+									<div class="value-display">
+										<span id="idle-interval-value">5</span> s
+									</div>
+									<input type="range" id="idle-interval" min="1" max="120" step="1" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="label-container">
+									<label for="grace-period" style="font-size: 1em; font-weight: normal;">Paused Grace Period</label>
+								</div>
+								<div class="slider-container">
+									<div class="value-display">
+										<span id="grace-period-value">10</span> s
+									</div>
+									<input type="range" id="grace-period" min="0" max="120" step="1" />
+								</div>
+							</div>
+						</div>
+
+						<!-- Card for Display Settings -->
+						<div class="settings-card">
+                            <div class="form-group">
+								<div class="label-container">
+									<label>Display</label>
+								</div>
+                                <div class="label-container">
+									<label style="font-size: 1em; font-weight: normal;">Show Album Name</label>
+								</div>
+								<div class="radio-group" id="album-display-group">
+									<label>
+										<input type="radio" name="albumDisplay" value="smart_show" />
+										<span>Smart Show (if different from song title)</span>
+									</label>
+									<label>
+										<input type="radio" name="albumDisplay" value="always_show" />
+										<span>Always Show</span>
+									</label>
+									<label>
+										<input type="radio" name="albumDisplay" value="always_hide" />
+										<span>Always Hide</span>
+									</label>
+								</div>
+							</div>
+						</div>
+						
+						<!-- API Configuration Card -->
+						<div class="settings-card">
+							<div class="form-group">
+								<div class="label-container">
+									<label>API Configuration</label>
+								</div>
+                                <div class="form-group">
+									<label for="client-id-input" style="font-size: 1em; font-weight: normal;">Your Spotify Client ID</label>
+									<input type="text" id="client-id-input" placeholder="No Client ID saved..." class="text-input-style">
+								</div>
+							</div>
+						</div>
+                        
+                        <!-- MODIFIED: "Reset to Defaults" card is now here -->
+                        <div class="settings-card">
+                            <div class="form-group">
+                                <div class="label-container">
+                                    <label>Reset Settings</label>
+                                    <p class="description">This resets polling and display settings to their original values, but keeps your Client ID.</p>
+                                </div>
+                                <div class="button-container" style="justify-content: flex-start; margin-top: 1.5em;">
+                                    <button id="reset-button" type="button">Reset to Defaults</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="button-container">
+                            <button id="save-button" type="submit">Save Settings</button>
+                        </div>
+					</form>
+				</div>
+
+				<!-- Right Column: Help and Reset Actions -->
+				<div class="column" id="help-column">
+					<!-- Help Section Card -->
+					<div class="settings-card" id="help-section">
+						<div class="form-group">
+							<div class="label-container">
+								<label>Help & Troubleshooting</label>
+							</div>
+							<details class="troubleshooting-item">
+								<summary>Logging In opens "INVALID_CLIENT: Invalid client"</summary>
+								<div class="answer">
+									<p class="description">
+										This error means Spotify does not recognize your setup. It is almost always caused by one of two things:
+									</p>
+									<p class="description" style="margin-top: 1em;">
+										1. The <strong>Client ID</strong> is incorrect. Please double-check it against the one in your Spotify Dashboard.
+									</p>
+									<p class="description" style="margin-top: 1em;">
+										2. The <strong>Redirect URI</strong> is missing or incorrect in your Spotify Dashboard settings. Open the <a href="setup.html" target="_blank" rel="noopener noreferrer">setup page</a> to find your correct URI and ensure it is added.
+									</p>
+								</div>
+							</details>
+							<details class="troubleshooting-item">
+								<summary>Sidebar shows "No Active Device"</summary>
+								<div class="answer">
+                                    <p class="description">
+                                        This message appears when Spotify doesn't report any active playback. Try these steps:
+                                    </p>
+									<p class="description" style="margin-top: 1em;">
+										1. Make sure music is <strong>actively playing</strong> (not paused).
+									</p>
+									<p class="description" style="margin-top: 1em;">
+										2. Try forcing a refresh by <strong>closing and reopening the Firefox sidebar</strong>.
+									</p>
+								</div>
+							</details>
+							<details class="troubleshooting-item">
+								<summary>How do I log out or switch accounts?</summary>
+								<div class="answer">
+									<p class="description">
+									   Open the extension sidebar and click the <strong>"Logout"</strong> button in the bottom-left corner.
+									</p>
+								</div>
+							</details>
+						</div>
+					</div>
+                    
+					<!-- Danger Zone Card -->
+					<div class="settings-card" style="border-color: #5a1e1e;">
+						<div class="form-group">
+							<div class="label-container">
+								<label>Danger Zone</label>
+								<p class="description">
+									This completely wipes all extension data, including your saved Client ID.
+								</p>
+							</div>
+							<div class="button-container" style="justify-content: flex-start; margin-top: 1.5em;">
+								<button id="clear-storage-button" type="button">Clear All Data</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="status-container">
+				<span id="status"></span>
+			</div>
+		</div>
+		<script src="options.js"></script>
+	</body>
+</html>
