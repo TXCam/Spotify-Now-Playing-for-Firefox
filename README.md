@@ -2,6 +2,9 @@
 
 Spotify Now Playing is a Firefox extension that puts your currently playing Spotify track directly in your browser's sidebar. It's designed to provide a sleek, immersive experience with dynamic visuals and essential track information, all without leaving your current tab.
 
+**IMPORTANT NOTE:**
+*As of March 9, 2026, Spotify Developer accounts will only be able to access the Web API unless they are tied to a Spotify Premium subscription, and therefore this program will no longer work with a Spotify Free account after that date*
+
 ---
 
 ![SidebarFullScreen](photos/NowPlayingSidebar2.png)
@@ -76,4 +79,5 @@ If you encounter issues, here are some common solutions:
 ![NowPlayingAlbum](photos/NowPlayingAlbum1.png)
 ![NowPlayingLogin](photos/NowPlayingLogin.png)
 ![NowPlayingOptions](photos/NowPlayingOptions1.png)
+
 ![NowPlayingSetup](photos/NowPlayingSetup1.png)
